@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Event newEvent = new Event("Concerto", new DateTime(2025, 10, 10),4);
+
+            newEvent.PrenotaPosti(2);
         }
     }
 }
