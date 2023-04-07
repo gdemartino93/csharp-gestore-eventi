@@ -4,12 +4,32 @@
     {
         static void Main(string[] args)
         {
-            Event newEvent = new Event("Concerto", new DateTime(2025, 10, 10),40);
+            Console.WriteLine("Crea evento");
+            Console.WriteLine("Inserisci il titolo dell'evento:");
+            string nomeEvento = Console.ReadLine();
+            Console.WriteLine("Inserisci la data delle evento yyyy/mm/dd");
+            DateTime data = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("Inserisci la capienza massima dell'evento");
+            int capienzaMassima = Convert.ToInt32(Console.ReadLine());
 
-            newEvent.PrenotaPosti(30);
-            newEvent.DisdiciPosti(3);
-            Console.WriteLine($"Posti prenotati {newEvent.PostiPrenotati}");
-            Console.WriteLine(newEvent.ToString());
+            Evento evento = new Evento(nomeEvento, data, capienzaMassima);
+            Console.WriteLine(evento.ToString());
+
+            Console.WriteLine("Hai bisogno di prenotare? si/no");
+            string risposta = Console.ReadLine();
+            switch(risposta)
+            {
+                case "si" :
+                    Console.WriteLine("Quanto posti vorresti prenotare?");
+                    int postiUtente = Convert.ToInt32(Console.ReadLine());
+                    evento.PrenotaPosti(postiUtente);
+
+                    break;
+                case "no": Console.WriteLine("no");
+                    break;
+
+            }
+            Console.WriteLine(evento.PostiLiberi);
         }
     }
 }

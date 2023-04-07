@@ -7,12 +7,13 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace csharp_gestore_eventi
 {
-    internal class Event
+    internal class Evento
     {
         private string titolo;
         private DateTime data;
         private int capienzaMassima;
         private int postiPrenotati;
+        private int postiLiberi;
 
         public string Titolo
         {
@@ -62,13 +63,33 @@ namespace csharp_gestore_eventi
             }
         }
         public int PostiPrenotati { get; set; }
+        public int PostiLiberi
+        {
+            get
+            {
+                return postiLiberi;
+            }
+            set
+            {
+               if(CapienzaMassima - PostiPrenotati > 0 )
+                {
+                    postiLiberi = CapienzaMassima - PostiPrenotati;
+                }
+                else
+                {
+                    Console.WriteLine("Non ci sono posti liberi");
+                }
 
-        public Event(string titolo,DateTime data,int capienzaMassima)
+            }
+        }
+
+        public Evento(string titolo,DateTime data,int capienzaMassima)
         {
             Titolo = titolo;
             Data = data;
             CapienzaMassima = capienzaMassima;
             PostiPrenotati = 0;
+            PostiLiberi = capienzaMassima;
         }
 
         public void PrenotaPosti(int postiDaAggiungere)
@@ -80,14 +101,20 @@ namespace csharp_gestore_eventi
             else
             {
                 PostiPrenotati += postiDaAggiungere;
-                if (postiDaAggiungere == 1)
+                PostiLiberi = CapienzaMassima - PostiPrenotati;
+                if(PostiPrenotati > 0)
                 {
-                    Console.WriteLine($"Hai prenotato {postiDaAggiungere} posto");
+                    if (postiDaAggiungere == 1)
+                    {
+                        Console.WriteLine($"Hai prenotato {postiDaAggiungere} posto. Posti liberi: {PostiLiberi}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Hai prenotato {postiDaAggiungere} posti. Posti liberi: {PostiLiberi}");
+                    }
+
                 }
-                else
-                {
-                    Console.WriteLine($"Hai prenotato {postiDaAggiungere} posti");
-                }
+
             }
         }
         public void DisdiciPosti(int postiDaDisdire)
