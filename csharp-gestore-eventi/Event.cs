@@ -61,30 +61,60 @@ namespace csharp_gestore_eventi
                 capienzaMassima = value;
             }
         }
-        public int PostiPrentoati { get; set; }
+        public int PostiPrenotati { get; set; }
 
         public Event(string titolo,DateTime data,int capienzaMassima)
         {
             Titolo = titolo;
             Data = data;
             CapienzaMassima = capienzaMassima;
-            PostiPrentoati = 0;
+            PostiPrenotati = 0;
         }
 
-        public void PrenotaPosti(int posti)
+        public void PrenotaPosti(int postiDaAggiungere)
         {
-            if ((CapienzaMassima == 0) || (Data < DateTime.Today) || ((CapienzaMassima - posti) <= 0))
+            if ((CapienzaMassima == 0) || (Data < DateTime.Today) || ((CapienzaMassima - postiDaAggiungere) <= 0))
             {
                 Console.WriteLine("Non è possibile prenotare");
             }
             else
             {
-                PostiPrentoati += posti;
-                Console.WriteLine("Prenotazione avvenuta");
+                PostiPrenotati += postiDaAggiungere;
+                if (postiDaAggiungere == 1)
+                {
+                    Console.WriteLine($"Hai prenotato {postiDaAggiungere} posto");
+                }
+                else
+                {
+                    Console.WriteLine($"Hai prenotato {postiDaAggiungere} posti");
+                }
             }
         }
+        public void DisdiciPosti(int postiDaDisdire)
+        {
+            if((Data < DateTime.Today) || ((PostiPrenotati - postiDaDisdire) <= 0))
+            {
+                Console.WriteLine("Impossibile disdire i posti");
+            }
+            else
+            {
+                PostiPrenotati -= postiDaDisdire;
+                if(postiDaDisdire == 1)
+                {
+                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posto");
+                }
+                else
+                {
+                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posti");
+                }
+            }
 
-
+      
+        }
+        public override string ToString()
+        {
+            return "Titolo evento: " + Titolo + " Data: " + Data.ToString();
+        }
     }
 }
 
