@@ -48,7 +48,12 @@ namespace csharp_gestore_eventi
         }
         public int ContaEventi()
         {
-           return Eventi.Count;
+           return  Eventi.Count;
+        }
+        public void SvuotaEventi()
+        {
+            Console.WriteLine("Lista eventi svuotata");
+            Eventi.Clear();
         }
     }
 }
