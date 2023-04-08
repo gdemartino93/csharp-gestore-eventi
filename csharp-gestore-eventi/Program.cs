@@ -21,6 +21,7 @@
 
        
             Console.WriteLine(eventi.ContaEventi());
+            Console.WriteLine(eventi.StampaProgramma());
 
             string eventilistastringa = ProgrammaEventi.EventiInStringa(eventi.Eventi);
             Console.WriteLine(eventilistastringa);

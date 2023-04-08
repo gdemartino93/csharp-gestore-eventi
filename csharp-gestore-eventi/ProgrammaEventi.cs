@@ -55,5 +55,14 @@ namespace csharp_gestore_eventi
             Console.WriteLine("Lista eventi svuotata");
             Eventi.Clear();
         }
+        public string StampaProgramma()
+        {
+            string programmaStringa = "";
+            foreach(var evento in Eventi)
+            {
+                programmaStringa += $"Titolo: {evento.Titolo}. Data: {evento.Data}\n";
+            }
+            return programmaStringa;
+        }
     }
 }
