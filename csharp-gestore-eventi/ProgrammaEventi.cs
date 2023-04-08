@@ -10,6 +10,7 @@ namespace csharp_gestore_eventi
     {
         private string titolo;
         List<Evento> eventi;
+        List<Evento> eventiCercatiPerData;
 
         public string Titolo { get; set; }
         public List<Evento> Eventi { get; set; }
@@ -18,6 +19,23 @@ namespace csharp_gestore_eventi
         {
             Titolo = titolo;
             Eventi = new List<Evento>();
+        }
+
+        public void aggiungiEvento(Evento evento)
+        {
+            Eventi.Add(evento);
+            Console.WriteLine("Evento aggiunto alla lista");
+        }
+        public void eventoPerData(DateTime dataDaCercare)
+        {
+            foreach (var evento in Eventi)
+            {
+                if(dataDaCercare == evento.Data)
+                {
+                    Console.WriteLine(evento.ToString());
+                }
+            }
+            
         }
     }
 }
