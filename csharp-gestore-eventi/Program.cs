@@ -7,8 +7,7 @@
 
             ProgrammaEventi eventi = new ProgrammaEventi("lista eventi");
 
-
-
+            ///debug 
             Evento uno = new Evento("concerto1", new DateTime(2024,12,01), 100);
             Evento due = new Evento("concerto2", new DateTime(2024,12,02), 200);
             Evento tre = new Evento("concerto3", new DateTime(2024,12,03), 300);
@@ -20,10 +19,10 @@
             eventi.aggiungiEvento(quattro);
             eventi.aggiungiEvento(cinque);
 
-            eventi.eventoPerData(new DateTime(2024, 12, 03));
 
-       
-           
+            string eventilistastringa = ProgrammaEventi.EventiInStringa(eventi.Eventi);
+            Console.WriteLine(eventilistastringa);
+
 
             Console.WriteLine("Crea evento");
             Console.WriteLine("Inserisci il titolo dell'evento:");

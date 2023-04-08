@@ -37,5 +37,14 @@ namespace csharp_gestore_eventi
             }
             
         }
+        public static string EventiInStringa(List<Evento> eventi)
+        {
+            string eventoStringa = "";
+            foreach(var evento in eventi)
+            {
+                eventoStringa += $"Evento: {evento.Titolo}. Data: {evento.Data}. Capienza Massima: {evento.CapienzaMassima} posti. Posti Prenotati: {evento.PostiPrenotati} posti. Posti liberi: {evento.PostiLiberi} posti\n";
+            }
+            return eventoStringa;
+        }
     }
 }
