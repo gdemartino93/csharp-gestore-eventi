@@ -5,34 +5,27 @@
         static void Main(string[] args)
         {
 
-            ProgrammaEventi eventi = new ProgrammaEventi("lista eventi");
-
-            ///debug 
-            Evento uno = new Evento("concerto1", new DateTime(2024,12,01), 100);
-            Evento due = new Evento("concerto2", new DateTime(2024,12,02), 200);
-            Evento tre = new Evento("concerto3", new DateTime(2024,12,03), 300);
-            Evento quattro = new Evento("concerto4", new DateTime(2024, 12, 03), 300);
-            Evento cinque = new Evento("concerto5", new DateTime(2024, 12, 03), 300);
-            eventi.aggiungiEvento(uno);
-            eventi.aggiungiEvento(due);
-            eventi.aggiungiEvento(tre);
-            eventi.aggiungiEvento(quattro);
-            eventi.aggiungiEvento(cinque);
-
-       
-            Console.WriteLine(eventi.ContaEventi());
-            Console.WriteLine(eventi.StampaProgramma());
-
-            string eventilistastringa = ProgrammaEventi.EventiInStringa(eventi.Eventi);
-            Console.WriteLine(eventilistastringa);
-
             Console.WriteLine("Crea il programma eventi");
             Console.WriteLine("Quale è il titolo del programma?");
             string titoloProgramma = Console.ReadLine();
+            //creazione programma eventi
+            ProgrammaEventi programmaEventi = new ProgrammaEventi(titoloProgramma);
             Console.WriteLine("Quanti eventi vuoi aggiungere al programma?");
             int numeroEventi = Convert.ToInt32(Console.ReadLine());
-
-            ProgrammaEventi programmaEventi = new ProgrammaEventi(titoloProgramma);
+            //creamo un ciclo per far creare X eventi
+            for(int i = 0; i < numeroEventi; i++)
+            {
+                Console.WriteLine("Inserisci titolo");
+                string titoloEvento = Console.ReadLine();
+                Console.WriteLine("Inserisci data");
+                DateTime dataEvento = Convert.ToDateTime(Console.ReadLine());
+                Console.WriteLine("Inserisci capienza massima");
+                int capienzaMaxEvento = Convert.ToInt32(Console.ReadLine());
+                Evento nuovoEvento = new Evento(titoloEvento, dataEvento, capienzaMaxEvento);
+                programmaEventi.aggiungiEvento(nuovoEvento);
+            }
+            string eventilistastringa = ProgrammaEventi.EventiInStringa(programmaEventi.Eventi);
+            Console.WriteLine(eventilistastringa);
 
 
             Console.WriteLine("Crea evento");
