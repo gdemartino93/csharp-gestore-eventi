@@ -27,7 +27,11 @@
                         DateTime dataEvento = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine("Inserisci capienza massima");
                         int capienzaMaxEvento = Convert.ToInt32(Console.ReadLine());
-                        Evento nuovoEvento = new Evento(titoloEvento, dataEvento, capienzaMaxEvento);
+                        Console.WriteLine("Inserisci il nome del relatore");
+                        string nomeRelatore = Console.ReadLine();
+                        Console.WriteLine("Inserisci il prezzo");
+                        double prezzo = Convert.ToDouble(Console.ReadLine());
+                        Conferenza nuovoEvento = new Conferenza(titoloEvento, dataEvento, capienzaMaxEvento,nomeRelatore,prezzo);
                         programmaEventi.aggiungiEvento(nuovoEvento);
                     }
                     Console.WriteLine("Scegli un opzione");
@@ -43,7 +47,7 @@
                             Console.WriteLine(programmaEventi.ContaEventi());
                             break;
                         case 2:
-                            Console.WriteLine(programmaEventi.StampaProgramma());
+                            Console.WriteLine(programmaEventi.ToString());
                             break;
                         case 3:
                             Console.WriteLine("Inserisci la data da cercare yyyy/mm/dd");

@@ -147,7 +147,7 @@ namespace csharp_gestore_eventi
         }
         public override string ToString()
         {
-            return "Titolo evento: " + Titolo + " Data: " + Data.ToString();
+            return "Evento|| Titolo evento: " + Titolo + " Data: " + Data.ToString();
         }
 
         public void StampaPosti()

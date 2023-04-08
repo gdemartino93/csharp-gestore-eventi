@@ -19,5 +19,11 @@ namespace csharp_gestore_eventi
             Relatore = relatore;
             Prezzo = prezzo;
         }
+
+        public override string ToString()
+        {
+            return $"Conferenza|| Titolo: {Titolo}. Data: {Data}. Relatore: {Relatore}. Prezzo:{Prezzo.ToString("0.00")}"; 
+        }
+
     }
 }
