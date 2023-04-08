@@ -46,5 +46,9 @@ namespace csharp_gestore_eventi
             }
             return eventoStringa;
         }
+        public int ContaEventi()
+        {
+           return Eventi.Count;
+        }
     }
 }

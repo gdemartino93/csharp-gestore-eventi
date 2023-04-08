@@ -19,6 +19,7 @@
             eventi.aggiungiEvento(quattro);
             eventi.aggiungiEvento(cinque);
 
+            Console.WriteLine(eventi.ContaEventi());
 
             string eventilistastringa = ProgrammaEventi.EventiInStringa(eventi.Eventi);
             Console.WriteLine(eventilistastringa);
