@@ -106,11 +106,13 @@ namespace csharp_gestore_eventi
                 {
                     if (postiDaAggiungere == 1)
                     {
-                        Console.WriteLine($"Hai prenotato {postiDaAggiungere} posto. Posti liberi: {PostiLiberi}");
+                        Console.WriteLine($"Hai prenotato {postiDaAggiungere} posto.");
+                        StampaPosti();
                     }
                     else
                     {
-                        Console.WriteLine($"Hai prenotato {postiDaAggiungere} posti. Posti liberi: {PostiLiberi}");
+                        Console.WriteLine($"Hai prenotato {postiDaAggiungere} posti.");
+                        StampaPosti();
                     }
 
                 }
@@ -126,14 +128,18 @@ namespace csharp_gestore_eventi
             else
             {
                 PostiPrenotati -= postiDaDisdire;
-                PostiLiberi = PostiPrenotati - postiDaDisdire;
-                if(postiDaDisdire == 1)
+
+                PostiLiberi += postiDaDisdire;
+
+                if (postiDaDisdire == 1)
                 {
-                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posto. Posti liberi: {PostiLiberi}");
+                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posto.");
+                    StampaPosti();
                 }
                 else
                 {
-                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posti. Posti liberi: {PostiLiberi}");
+                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posti.");
+                    StampaPosti();
                 }
             }
 
@@ -142,6 +148,11 @@ namespace csharp_gestore_eventi
         public override string ToString()
         {
             return "Titolo evento: " + Titolo + " Data: " + Data.ToString();
+        }
+
+        public void StampaPosti()
+        {
+            Console.WriteLine($"Posti Liberi: {PostiLiberi} posti. Posti prenotati: {PostiPrenotati} posti");
         }
     }
 }
