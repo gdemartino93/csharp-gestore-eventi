@@ -26,6 +26,14 @@
             string eventilistastringa = ProgrammaEventi.EventiInStringa(eventi.Eventi);
             Console.WriteLine(eventilistastringa);
 
+            Console.WriteLine("Crea il programma eventi");
+            Console.WriteLine("Quale è il titolo del programma?");
+            string titoloProgramma = Console.ReadLine();
+            Console.WriteLine("Quanti eventi vuoi aggiungere al programma?");
+            int numeroEventi = Convert.ToInt32(Console.ReadLine());
+
+            ProgrammaEventi programmaEventi = new ProgrammaEventi(titoloProgramma);
+
 
             Console.WriteLine("Crea evento");
             Console.WriteLine("Inserisci il titolo dell'evento:");
