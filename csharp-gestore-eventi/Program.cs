@@ -29,7 +29,23 @@
                     break;
 
             }
-            Console.WriteLine(evento.PostiLiberi);
+            bool continua = true;
+            while (continua)
+            {
+                Console.WriteLine("Vuoi disdire posti? si/no");
+                risposta = Console.ReadLine();
+                switch(risposta)
+                {
+                    case "si":
+                        Console.WriteLine("Quanti posti vuoi disdire?");
+                        int postiUtente = Convert.ToInt32(Console.ReadLine());
+                        evento.DisdiciPosti(postiUtente);
+                        break;
+                    case "no": continua = false;
+                        break;
+                        
+                }
+            }           
         }
     }
 }

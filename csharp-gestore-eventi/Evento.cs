@@ -119,20 +119,21 @@ namespace csharp_gestore_eventi
         }
         public void DisdiciPosti(int postiDaDisdire)
         {
-            if((Data < DateTime.Today) || ((PostiPrenotati - postiDaDisdire) <= 0))
+            if((Data < DateTime.Today) || ((PostiPrenotati - postiDaDisdire) < 0))
             {
                 Console.WriteLine("Impossibile disdire i posti");
             }
             else
             {
                 PostiPrenotati -= postiDaDisdire;
+                PostiLiberi = PostiPrenotati - postiDaDisdire;
                 if(postiDaDisdire == 1)
                 {
-                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posto");
+                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posto. Posti liberi: {PostiLiberi}");
                 }
                 else
                 {
-                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posti");
+                    Console.WriteLine($"Hai disdetto {postiDaDisdire} posti. Posti liberi: {PostiLiberi}");
                 }
             }
 
